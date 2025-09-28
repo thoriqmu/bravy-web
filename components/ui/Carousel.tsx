@@ -59,7 +59,7 @@ export default function Carousel({
     <div className={`relative ${className}`}>
       <div
         ref={scrollerRef}
-        // hide native scrollbar via CSS class (see globals.css change below)
+        // hide native scrollbar via CSS class (see globals.css addition)
         className="flex overflow-x-auto scroll-smooth snap-x snap-mandatory touch-pan-x -mx-4 px-4 hide-scrollbar"
         style={{
           WebkitOverflowScrolling: "touch",
@@ -70,12 +70,12 @@ export default function Carousel({
         {images.map((src, i) => (
           <div
             key={i}
-            className="relative flex-shrink-0 w-full snap-center mx-auto rounded-lg overflow-hidden bg-muted"
+            className="relative mx-auto w-full flex-shrink-0 snap-center overflow-hidden rounded-lg bg-white"
             aria-hidden={index !== i}
             role="group"
           >
-            {/* increased height and object-contain to avoid cropping top/bottom */}
-            <div className="relative h-64 sm:h-72 md:h-80 lg:h-88">
+            {/* taller viewport with contain to avoid cropping */}
+            <div className="relative h-64 sm:h-72 md:h-80">
               <Image
                 src={src}
                 alt={`${altPrefix} ${i + 1}`}
@@ -88,7 +88,7 @@ export default function Carousel({
         ))}
       </div>
 
-      {/* Dots only (kept for navigation) */}
+      {/* bar-style indicators */}
       <div className="mt-3 flex justify-center gap-2">
         {images.map((_, i) => (
           <button
