@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
@@ -7,7 +8,16 @@ export function Footer() {
       <Container>
         <div className="flex flex-col items-start justify-between gap-6 text-sm text-slate-700 md:flex-row md:items-center">
           <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-xl bg-bravy-accent" />
+            <div className="relative h-10 w-10 overflow-hidden rounded-2xl ring-1 ring-black/10 bg-white">
+              <Image
+                src="/bravy-logo.png"
+                alt="BRAVY Logo"
+                fill
+                priority
+                sizes="40px"
+                className="object-contain p-1"
+              />
+            </div>
             <span className="font-semibold text-slate-900">BRAVY_ID</span>
           </div>
           <div className="flex flex-wrap items-center gap-4">
